@@ -1,5 +1,5 @@
 import matplotlib
-matplotlib.use("Agg")
+matplotlib.use("Agg")   # HARUS DI ATAS sebelum pyplot
 
 import pandas as pd
 import numpy as np
@@ -16,7 +16,7 @@ app = Flask(__name__)
 df = pd.read_csv("bitcoin.csv")
 
 price_mean = df['Close'].mean()
-volume_mean = df['Volume_(BTC)'].mean()
+volume_mean = df['Volume'].mean()   # ✅ FIX DI SINI
 
 # =========================
 # Model Predator–Prey
@@ -69,6 +69,9 @@ plt.tight_layout()
 plt.savefig("static/plots/phase_portrait.png")
 plt.close()
 
+# =========================
+# Flask Route
+# =========================
 @app.route("/")
 def index():
     return render_template(
