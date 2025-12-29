@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>Model Predator–Prey Bitcoin</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<div class="container">
+    <h1>Dinamika Interaksi Harga Bitcoin dan Volume Transaksi</h1>
+    <h2>Model Predator–Prey (Lotka–Volterra)</h2>
+
+    <p class="desc">
+        Aplikasi ini memodelkan hubungan dinamis antara harga Bitcoin
+        sebagai mangsa dan volume transaksi sebagai predator
+        menggunakan pendekatan sistem dinamik Lotka–Volterra.
+    </p>
+
+    <div class="stats">
+        <div class="card">
+            <h3>Rata-rata Harga Bitcoin</h3>
+            <p>${{ price_avg }}</p>
+        </div>
+        <div class="card">
+            <h3>Rata-rata Volume Transaksi</h3>
+            <p>{{ volume_avg }}</p>
+        </div>
+    </div>
+
+    <h3>Grafik Dinamika Waktu</h3>
+    <img src="{{ url_for('static', filename='plots/timeseries.png') }}" alt="Time Series">
+
+    <h3>Phase Portrait</h3>
+    <img src="{{ url_for('static', filename='plots/phase_portrait.png') }}" alt="Phase Portrait">
+
+    <footer>
+        <p>Dataset: Bitcoin Historical Data (Kaggle)</p>
+        <p>Model Predator–Prey | Sistem Dinamik</p>
+    </footer>
+</div>
+
+</body>
+</html>
